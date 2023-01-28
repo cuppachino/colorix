@@ -31,6 +31,12 @@ export default function cx<Colors extends Color[]>(...colors: Colors) {
 
 export { cx, cx as colorix }
 export { CSI, SGRT } from './ansi.mjs'
+export {
+  hasBasic as hasBasicColors,
+  has256 as has256Colors,
+  has16m as has16mColors,
+  supportsColor
+} from './supports-color.mjs'
 
 export {
   COLORS,

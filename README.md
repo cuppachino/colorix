@@ -77,6 +77,10 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 | [`BACKGROUND`](src/colors.mts) | readonly background lookup object |
 | [`MODIFIER`](src/colors.mts) | readonly modifier lookup object |
 | [`COLORS`](src/colors.mts) | readonly color lookup object (foreground, background, and modifiers) |
+| [`hasBasicColors`](src/index.mts) | boolean indicating if the terminal supports basic colors |
+| [`has256Colors`](src/index.mts) | boolean indicating if the terminal supports 256 colors |
+| [`has16MillionColors`](src/index.mts) | boolean indicating if the terminal supports 16 million colors |
+| [`supportsColor`](src/index.mts) | boolean indicating if the terminal supports any color |
 
 ### Types
 

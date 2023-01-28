@@ -1,17 +1,8 @@
 import type { Stringifiable } from '@cuppachino/type-space'
-import { CSI, SGRT } from './ansi.mjs'
-import { COLORS } from './colors.mjs'
-import { join } from './join.mjs'
-import type { ColorSequence } from './types/color-sequence.mjs'
-import type { Colorix } from './types/colorix.mjs'
 import type { Color } from './types/colors.mjs'
-import type { MapColorsToCodes } from './types/map-colors-to-codes.mjs'
-
-const mapColorsToCodes = <Colors extends Color[]>(colors: Colors) =>
-  colors.map((color) => COLORS[color]) as MapColorsToCodes<Colors>
-
-const colorSequence = <Colors extends Color[]>(...colors: Colors): ColorSequence<Colors> =>
-  `${CSI}${join(mapColorsToCodes(colors), ';')}${SGRT}`
+import type { Colorix } from './types/colorix.mjs'
+import { colorSequence } from './color-sequence.mjs'
+import { join } from './join.mjs'
 
 const reset = colorSequence('reset')
 

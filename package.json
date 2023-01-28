@@ -1,6 +1,6 @@
 {
   "name": "colorix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Apply ANSI colors to strings!",
   "author": "cuppachino <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",

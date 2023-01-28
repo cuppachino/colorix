@@ -1,0 +1,27 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": false
+  },
+  "files.eol": "\r\n",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "references.preferredLocation": "peek",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

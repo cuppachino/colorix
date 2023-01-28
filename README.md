@@ -70,7 +70,7 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 ### Constants
 
 | Name | Description |
-| --- | --- |
+| :--- | :--- |
 | [`CSI`](src/ansi.mts) | control sequence introducer (`"\x1b["`) |
 | [`SGRT`](src/ansi.mts) | select graphic rendition terminator (`"m"`) |
 | [`FOREGROUND`](src/colors.mts) | readonly foreground lookup object |
@@ -81,12 +81,12 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 ### Types
 
 | Generic | Description |
-| --- | --- |
+| :--- | :--- |
 | [`Colorix`](src/types/colorix.mts) | utility for creating literals wrapped in ANSI sequences |
 | [`ColorSequence`](src/types/color-sequence.mts) | utility for creating literal ANSI sequences |
 
 | Alias | Description |
-| --- | --- |
+| :--- | :--- |
 | [`ResetSequence`](src/types/color-sequence.mts) | literal reset sequence that is always appended to the end of a color sequence |
 | [`ColorTable`](src/types/colors.mts) | readonly record of color aliases and color codes |
 | [`Color`](src/types/colors.mts) | a foreground, background, or modifier color (`keyof ColorTable`) |
@@ -98,7 +98,7 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 #### Color Tables
 
 | Foreground | Code | Foreground Bright | Code |
-| --- | :---: | --- | :---: |
+| :--- | :---: | :--- | :---: |
 | `"black"` | 30 | `"gray"` | 90 |
 | `"red"` | 31 | `"redBright"` | 91 |
 | `"green"` | 32 | `"greenBright"` | 92 |
@@ -109,7 +109,7 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 | `"white"` | 37 | `"whiteBright"` | 97 |
 
 | Background | Code | Background Bright | Code |
-| --- | :---: | --- | :---: |
+| :--- | :---: | :--- | :---: |
 | `"bgBlack"` | 40 | `"bgGray"` | 100 |
 | `"bgRed"` | 41 | `"bgRedBright"` | 101 |
 | `"bgGreen"` | 42 | `"bgGreenBright"` | 102 |
@@ -120,7 +120,7 @@ declare const cx: <Colors extends Color[]>(...colors: Colors) =>
 | `"bgWhite"` | 47 | `"bgWhiteBright"` | 107 |
 
 | Modifier | Code |
-| --- | :---: |
+| :--- | :---: |
 | `"reset"` | 0 |,
 | `"bold"` | 1 |,
 | `"dim"` | 2 |,

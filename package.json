@@ -6,11 +6,11 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cuppachino/minecraft-splash.git"
+    "url": "git+https://github.com/Cuppachino/colorix.git"
   },
-  "homepage": "https://github.com/Cuppachino/minecraft-splash#readme",
+  "homepage": "https://github.com/Cuppachino/colorix#readme",
   "bugs": {
-    "url": "https://github.com/Cuppachino/minecraft-splash/issues"
+    "url": "https://github.com/Cuppachino/colorix/issues"
   },
   "files": [
     "dist"

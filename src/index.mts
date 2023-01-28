@@ -17,7 +17,8 @@ const reset = colorSequence('reset')
 export default function cx<Colors extends Color[]>(...colors: Colors) {
   const sequence = colorSequence(...colors)
 
-  return <T extends Stringifiable[]>(...t: T): Colorix<Colors, T> => `${sequence}${join(t)}${reset}`
+  return <Strings extends Stringifiable[]>(...strings: Strings): Colorix<Colors, Strings> =>
+    `${sequence}${join(strings)}${reset}`
 }
 
 export { cx, cx as colorix }

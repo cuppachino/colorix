@@ -23,14 +23,13 @@ const reset = colorSequence('reset')
  * console.log(goblinInk('hello goblin', '!'))
  * ```
  */
-export function cx<Colors extends Color[]>(...colors: Colors) {
+export default function cx<Colors extends Color[]>(...colors: Colors) {
   const sequence = colorSequence(...colors)
 
   return <T extends Stringifiable[]>(...t: T): Colorix<Colors, T> => `${sequence}${join(t)}${reset}`
 }
 
-export default cx
-export { cx as colorix }
+export { cx, cx as colorix }
 export { CSI, SGRT } from './ansi.mjs'
 
 export {

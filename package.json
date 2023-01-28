@@ -43,7 +43,7 @@
     "regenerator-runtime": "^0.13.11",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.4"
+    "typescript": "5.0.0-beta"
   },
   "dependencies": {
     "supports-color": "^9.3.1"

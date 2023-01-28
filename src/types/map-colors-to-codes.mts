@@ -1,4 +1,4 @@
-import type { COLORS } from 'src/colors.mjs'
+import type { COLORS } from '../colors.mjs'
 import type { Color } from './colors.mjs'
 
 /**

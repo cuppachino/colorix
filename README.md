@@ -53,7 +53,7 @@ yarn add colorix
 ### `colorix` / `cx` / `default`
 
 | Colorix | Description |
-| --- | --- |
+| :---: | :--- |
 | [`default`](src/index.mts) | create presets for colorizing [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) values. |
 | [`colorix`](src/index.mts) | alias for `cx` |
 | [`cx`](src/index.mts) | named export |

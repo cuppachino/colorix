@@ -23,7 +23,7 @@
     "terminal",
     "pretty"
   ],
-  "main": "index.mjs",
+  "main": "./dist/index.mjs",
   "type": "module",
   "packageManager": "pnpm@7.25.0",
   "publishConfig": {},

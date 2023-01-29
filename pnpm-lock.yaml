@@ -13,10 +13,10 @@ specifiers:
   typescript: 5.0.0-beta
 
 dependencies:
+  '@cuppachino/type-space': 1.10.1
   supports-color: 9.3.1
 
 devDependencies:
-  '@cuppachino/type-space': 1.10.1
   '@swc/core': 1.3.27
   '@swc/helpers': 0.4.14
   '@types/node': 18.11.18
@@ -37,7 +37,7 @@ packages:
 
   /@cuppachino/type-space/1.10.1:
     resolution: {integrity: sha512-DLUk/EFme1BxnBTlJuezd18/k+MCNLEEk92Ow2U2MFs9jM5t0uamxduKRxVVw4nmeh99aJosr6fm8FE8o+9dpg==}
-    dev: true
+    dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}

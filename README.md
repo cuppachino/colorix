@@ -64,7 +64,7 @@ yarn add colorix
 
 ### `safe`, `colorixSafe`, `cxs`
 
-You can use the `safe` function to check if the terminal supports color before applying a preset.
+You can use `safe` to check if the terminal supports color before applying a preset.
 
 ```ts
 import cx, { safe } from 'colorix'
@@ -77,7 +77,7 @@ console.log(safe(errorInk)('That tasted purple...'))
 // "That tasted purple..." | "\u001B[mThat tasted purple...\u001B[0m"
 ```
 
-Alternatively, use `colorixSafe` / `cxs` for a present that _only_ applies colors if the terminal supports it.
+Alternatively, use `colorixSafe` / `cxs` for an `Ink` preset that _only_ applies colors if the terminal supports it.
 
 ```ts
 import { cxs, colorixSafe } from 'colorix'
@@ -110,10 +110,10 @@ throw new FileNotFoundError(
 
 |                        Colorix                        | Description                                                                                                                                                                                |
 | :---------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     [`default` / `cx` / `colorix`](src/index.mts)     | create presets for colorizing [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) values                        |
-| [`cxs` / `colorixSafe`](src/modules/colorix-safe.mts) | create presets for colorizing when the terminal supports it [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) |
-|            [`safe`](src/modules/safe.mts)             | call a colorix preset safely `safe(cx( ...colors ))`                                                                                                                                       |
-| [`ColorixError`](src/modules/colorix-error.mts)       | create child `Error` classes with colorized messages                                                                                                                                       |
+|     [`default` / `cx` / `colorix`](src/index.mts)     | Create presets for colorizing [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) values. |
+| [`cxs` / `colorixSafe`](src/modules/colorix-safe.mts) | Create presets for colorizing when the terminal supports it [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts). |
+|            [`safe`](src/modules/safe.mts)             | Call a colorix preset safely `safe(cx( ...colors ))`. |
+|    [`ColorixError`](src/modules/colorix-error.mts)    | Create child `Error` classes with colorized messages. |
 
 ### Constants
 
@@ -172,12 +172,12 @@ throw new FileNotFoundError(
 | `"bgWhite"`   |  47  | `"bgWhiteBright"`   | 107  |
 
 | Modifier          | Code |
-| :---------------- | :--: | --- |
-| `"reset"`         |  0   | ,   |
-| `"bold"`          |  1   | ,   |
-| `"dim"`           |  2   | ,   |
-| `"italic"`        |  3   | ,   |
-| `"underline"`     |  4   | ,   |
-| `"inverse"`       |  7   | ,   |
-| `"hidden"`        |  8   | ,   |
+| :---------------- | :--: |
+| `"reset"`         |  0   |
+| `"bold"`          |  1   |
+| `"dim"`           |  2   |
+| `"italic"`        |  3   |
+| `"underline"`     |  4   |
+| `"inverse"`       |  7   |
+| `"hidden"`        |  8   |
 | `"strikethrough"` |  9   |

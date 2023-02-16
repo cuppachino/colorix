@@ -1,6 +1,6 @@
 {
   "name": "colorix",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Apply ANSI colors to strings!",
   "author": "cuppachino <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
@@ -12,9 +12,6 @@
   "bugs": {
     "url": "https://github.com/Cuppachino/colorix/issues"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "ansi",
     "color",
@@ -23,14 +20,36 @@
     "terminal",
     "pretty"
   ],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/modules/index.d.ts"
+    },
+    "./src/*": "./dist/*",
+    "./src/modules/*": "./dist/modules/*",
+    "./src/modules": {
+      "import": "./dist/modules/index.mjs",
+      "types": "./dist/modules/index.d.ts"
+    },
+    "./src/types/*": "./dist/types/*",
+    "./src/types": {
+      "import": "./dist/types/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "type": "module",
   "packageManager": "pnpm@7.25.0",
   "publishConfig": {},
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node-esm ./src/index.mts",
     "build:swc": "ts-node ./src/index.mts",
-    "build:tsc": "tsc --build --clean && tsc",
+    "build:tsc": "pnpm build:clean && tsc -p tsconfig.production.json",
     "build:clean": "tsc --build --clean",
     "start": "node ./dist/index.mjs"
   },
@@ -42,7 +61,7 @@
     "regenerator-runtime": "^0.13.11",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
-    "typescript": "5.0.0-beta"
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "@cuppachino/type-space": "^1.10.1",

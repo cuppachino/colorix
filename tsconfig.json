@@ -21,7 +21,8 @@
     "allowUnusedLabels": false,
     "checkJs": true,
     "exactOptionalPropertyTypes": true,
-    "verbatimModuleSyntax": true,
+    "importsNotUsedAsValues": "error",
+    // "verbatimModuleSyntax": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -37,7 +38,7 @@
   /* ts-node */
   "ts-node": {
     "transpileOnly": true,
-    // "files": true,
+    "files": true,
     "swc": true,
     "esm": true,
     "compilerOptions": {},

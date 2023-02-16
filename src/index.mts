@@ -1,52 +1,32 @@
-import type { Stringifiable } from '@cuppachino/type-space'
-import type { Color } from './types/colors.mjs'
-import type { Colorix } from './types/colorix.mjs'
-import { colorSequence } from './color-sequence.mjs'
-import { join } from './join.mjs'
-
-const reset = colorSequence('reset')
-
-/**
- * @example
- * ```ts
- * import cx from 'colorix'
- * const goblinInk = cx('bgGreen', 'black', 'bold')
- * console.log(goblinInk('hello goblin', '!'))
- * ```
- */
-export default function cx<Colors extends Color[]>(...colors: Colors) {
-  const sequence = colorSequence(...colors)
-
-  return <Strings extends Stringifiable[]>(...strings: Strings): Colorix<Colors, Strings> =>
-    `${sequence}${join(strings)}${reset}`
-}
-
-export { cx, cx as colorix }
+import { cx } from './modules/colorix.mjs'
+export default cx
+export { cx, colorix } from './modules/colorix.mjs'
+export { cxs, colorixSafe } from './modules/colorix-safe.mjs'
+export { safe } from './modules/safe.mjs'
 export { CSI, SGRT } from './ansi.mjs'
 export {
-  hasBasic as hasBasicColors,
-  has256 as has256Colors,
-  has16m as has16mColors,
-  supportsColor
-} from './supports-color.mjs'
-
-export {
+  BACKGROUND,
   COLORS,
   FOREGROUND,
-  BACKGROUND,
   MODIFIERS,
   backgroundColors,
   foregroundColors,
   modifiers
 } from './colors.mjs'
-
+export * from './modules/index.mjs'
+export {
+  has16m as has16mColors,
+  has256 as has256Colors,
+  hasBasic as hasBasicColors,
+  supportsColor
+} from './supports-color.mjs'
+export type { ColorSequence, ResetSequence } from './types/color-sequence.mjs'
 export type { Colorix } from './types/colorix.mjs'
 export type {
-  Color,
-  Foreground,
   Background,
-  Modifier,
+  Color,
   ColorCode,
-  ColorTable
+  ColorTable,
+  Foreground,
+  Modifier
 } from './types/colors.mjs'
-export type { ColorSequence, ResetSequence } from './types/color-sequence.mjs'

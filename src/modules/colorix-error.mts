@@ -38,11 +38,9 @@ export const ColorixError = <ErrorName extends string, Message extends string>(
   message: Message
 ) =>
   class Err extends Error {
-    constructor(...[msg, ...info]: [msg: string, ...info: (ApplyStyle | string)[]])
-    constructor(...[style, ...info]: [style: ApplyStyle, ...info: (ApplyStyle | string)[]])
-    constructor(
-      ...styleOrMsg: [styleOrMsg: ApplyStyle | string, ...info: (ApplyStyle | string)[]]
-    ) {
+    constructor(...[msg, ...info]: (ApplyStyle | string)[])
+    constructor(...[style, ...info]: (ApplyStyle | string)[])
+    constructor(...styleOrMsg: (ApplyStyle | string)[]) {
       const msg = styleOrMsg.map((s) => (typeof s === 'string' ? s : s(colorixApi)))
       msg.unshift(safeBoldRedInk(message + '\n'))
       super(msg.join(' '))

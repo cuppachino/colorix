@@ -25,6 +25,19 @@ declare const goblinMessage: Colorix<['bgGreen', 'black', 'bold'], [string, ...s
 // => `\u001B[42;30;1m${string}\u001B[0m`
 ```
 
+## How it works
+
+```ts
+// create a theme by passing colors to the first function.
+declare const cx: <Colors extends Color[]>(
+  ...colors: Colors
+) => // then pass stringifiable values to the second function to colorize them.
+<Strings extends Stringifiable[]>(
+  ...strings: Strings
+) => // the returned value is an ansified string.
+Colorix<Colors, Strings>
+```
+
 ## Installation
 
 Add `colorix` to your project using your favorite package manager.
@@ -73,6 +86,24 @@ const safeErrorInk = cxs('bold', 'red') // or colorixSafe('bold', 'red')
 console.log(safeErrorInk('That tasted purple...'))
 ```
 
+## Bonus Features
+
+### `ColorixError`
+
+`ColorixError` can be used to extend the Error class. This is useful for throwing consistent, legible, contextual errors.
+
+```ts
+import { ColorixError } from 'colorix'
+
+const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing')
+
+throw new FileNotFoundError(
+  'The file',
+  (style) => style.link('file.txt'),
+  'was not found in the target directory.'
+)
+```
+
 ## Exports
 
 ### `default`, `colorix`, `cx`
@@ -82,17 +113,7 @@ console.log(safeErrorInk('That tasted purple...'))
 |     [`default` / `cx` / `colorix`](src/index.mts)     | create presets for colorizing [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) values                        |
 | [`cxs` / `colorixSafe`](src/modules/colorix-safe.mts) | create presets for colorizing when the terminal supports it [`Stringifiable`](https://github.com/Cuppachino/type-space/blob/9f1a2d71db0c6ef0e3c74b7f4cbdbe7efc390dcb/src/stringifiable.ts) |
 |            [`safe`](src/modules/safe.mts)             | call a colorix preset safely `safe(cx( ...colors ))`                                                                                                                                       |
-
-```ts
-// create a theme by passing colors to the first function.
-declare const cx: <Colors extends Color[]>(
-  ...colors: Colors
-) => // then pass stringifiable values to the second function to colorize them.
-<Strings extends Stringifiable[]>(
-  ...strings: Strings
-) => // the returned value is an ansified string.
-Colorix<Colors, Strings>
-```
+| [`ColorixError`](src/modules/colorix-error.mts)       | create child `Error` classes with colorized messages                                                                                                                                       |
 
 ### Constants
 

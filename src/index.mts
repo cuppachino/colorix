@@ -3,6 +3,7 @@ export default cx
 export { cx, colorix } from './modules/colorix.mjs'
 export { cxs, colorixSafe } from './modules/colorix-safe.mjs'
 export { safe } from './modules/safe.mjs'
+export { ColorixError } from './modules/colorix-error.mjs'
 export { CSI, SGRT } from './ansi.mjs'
 export {
   BACKGROUND,

@@ -1,3 +1,4 @@
+export * from './colorix-error.mjs'
 export * from './colorix-safe.mjs'
 export * from './colorix.mjs'
 export * from './ink-presets.mjs'

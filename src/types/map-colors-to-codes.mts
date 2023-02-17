@@ -13,5 +13,5 @@ export type MapColorsToCodes<A extends Color[]> = A extends [
   infer Head extends Color,
   ...infer Tail extends Color[]
 ]
-  ? [typeof COLORS[Head], ...MapColorsToCodes<Tail>]
+  ? [(typeof COLORS)[Head], ...MapColorsToCodes<Tail>]
   : []

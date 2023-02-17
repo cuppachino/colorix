@@ -1,20 +1,20 @@
 import { cx } from './modules/colorix.mjs'
 export default cx
-export { cx, colorix } from './modules/colorix.mjs'
-export { cxs, colorixSafe } from './modules/colorix-safe.mjs'
-export { safe } from './modules/safe.mjs'
-export { ColorixError } from './modules/colorix-error.mjs'
 export { CSI, SGRT } from './ansi.mjs'
 export {
   BACKGROUND,
+  backgroundColors,
   COLORS,
   FOREGROUND,
-  MODIFIERS,
-  backgroundColors,
   foregroundColors,
+  MODIFIERS,
   modifiers
 } from './colors.mjs'
+export { ColorixError } from './modules/colorix-error.mjs'
+export { colorixSafe, cxs } from './modules/colorix-safe.mjs'
+export { colorix, cx } from './modules/colorix.mjs'
 export * from './modules/index.mjs'
+export { safe } from './modules/safe.mjs'
 export {
   has16m as has16mColors,
   has256 as has256Colors,

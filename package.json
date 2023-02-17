@@ -51,7 +51,8 @@
     "build:swc": "ts-node ./src/index.mts",
     "build:tsc": "pnpm build:clean && tsc -p tsconfig.production.json",
     "build:clean": "tsc --build --clean",
-    "start": "node ./dist/index.mjs"
+    "start": "node ./dist/index.mjs",
+    "test": "echo \"Warn: no test specified\" && exit 0"
   },
   "devDependencies": {
     "@swc/core": "^1.3.27",

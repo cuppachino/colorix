@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node and different operating systems.
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: install-node
+name: node-pnpm
 
 on:
   push:
@@ -49,5 +49,5 @@ jobs:
 
       # Install dependencies, lint, build, and test.
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build:tsc
+      - run: pnpm build
       - run: pnpm test

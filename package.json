@@ -49,8 +49,9 @@
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node-esm ./src/index.mts",
     "build:swc": "ts-node ./src/index.mts",
-    "build:tsc": "pnpm build:clean && tsc -p tsconfig.prod.json",
-    "build:clean": "tsc --build --clean",
+    "build:tsc": "pnpm clean && pnpm build",
+    "build": "tsc -p tsconfig.prod.json",
+    "clean": "tsc --build --clean",
     "format": "prettier -w \"src/**/*.{mts,json,md}\"",
     "start": "node ./dist/index.mjs",
     "test": "echo \"Warn: no test specified\" && exit 0"

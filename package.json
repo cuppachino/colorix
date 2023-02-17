@@ -1,6 +1,6 @@
 {
   "name": "colorix",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Apply ANSI colors to strings!",
   "author": "cuppachino <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
@@ -26,18 +26,18 @@
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./*": "./dist/*",
     ".": {
       "import": "./dist/index.mjs",
       "types": "./dist/modules/index.d.ts"
     },
-    "./src/*": "./dist/*",
-    "./src/modules/*": "./dist/modules/*",
-    "./src/modules": {
+    "./modules/*": "./dist/modules/*",
+    "./modules": {
       "import": "./dist/modules/index.mjs",
       "types": "./dist/modules/index.d.ts"
     },
-    "./src/types/*": "./dist/types/*",
-    "./src/types": {
+    "./types/*": "./dist/types/*",
+    "./types": {
       "import": "./dist/types/index.mjs",
       "types": "./dist/types/index.d.ts"
     },

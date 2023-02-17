@@ -49,5 +49,5 @@ jobs:
 
       # Install dependencies, lint, build, and test.
       - run: pnpm install --frozen-lockfile
-      - run: pnpm 'build:tsc' --if-present
+      - run: pnpm build:tsc
       - run: pnpm test

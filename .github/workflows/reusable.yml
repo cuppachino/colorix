@@ -19,7 +19,7 @@ jobs:
           - x64
 
     steps:
-      - uses: ./.github/workflows/node-pnpm.yml
+      - uses: ./.github/workflows/node-pnpm.yml@main
         # with:
         #   node-version: ${{ matrix.node_version }}
         #   architecture: ${{ matrix.architecture }}

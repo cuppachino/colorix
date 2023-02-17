@@ -1,0 +1,26 @@
+name: Reusable workflow example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          # - windows-latest
+        node_version:
+          # - 16
+          - 18
+        architecture:
+          - x64
+
+    steps:
+      - uses: .github/workflows/node-pnpm.yml
+        # with:
+        #   node-version: ${{ matrix.node_version }}
+        #   architecture: ${{ matrix.architecture }}
+        #   cache: "pnpm"

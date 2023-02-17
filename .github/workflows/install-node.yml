@@ -26,14 +26,25 @@ jobs:
           - x64
     
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
-
+    
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Node.js environment
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.JS
       uses: actions/setup-node@v3.6.0
       with:
-        node-version: ${{ matrix.node }}
-        check-latest: true
+        node-version: ${{ matrix.node_version }}
+        architecture: ${{ matrix.architecture }}
         cache: 'pnpm'
+    
+    # Install PNPM
+    - uses: pnpm/action-setup@v2
+      name: install pnpm
+      id: pnpm-install
+      with:
+        version: 7
+        run_install: false
+    
     - run: pnpm install --frozen-lockfile
     - run: pnpm test

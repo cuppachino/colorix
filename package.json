@@ -51,6 +51,7 @@
     "build:swc": "ts-node ./src/index.mts",
     "build:tsc": "pnpm build:clean && tsc -p tsconfig.production.json",
     "build:clean": "tsc --build --clean",
+    "format": "prettier -w \"src/**/*.{mts,json,md}\"",
     "start": "node ./dist/index.mjs",
     "test": "echo \"Warn: no test specified\" && exit 0"
   },
@@ -59,6 +60,7 @@
     "@swc/helpers": "^0.4.14",
     "@types/node": "^18.11.18",
     "nodemon": "^2.0.20",
+    "prettier": "^2.8.4",
     "regenerator-runtime": "^0.13.11",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",

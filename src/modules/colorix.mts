@@ -15,7 +15,12 @@ import { reset } from '../reset.mjs'
  * @example
  * ```ts
  * import cx from 'colorix'
+ *
+ * // <Strings extends Stringifiable[]>(...strings: Strings)
+ * // => `\u001B[42;30;1m${Join<Strings, "", "">}\u001B[0m`
  * const goblinInk = cx('bgGreen', 'black', 'bold')
+ *
+ * // \u001B[42;30;1mhello goblin!\u001B[0m
  * console.log(goblinInk('hello goblin', '!'))
  * ```
  * ---

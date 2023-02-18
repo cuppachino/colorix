@@ -44,6 +44,7 @@ export const ColorixError = <ErrorName extends string, Message extends string>(
       const msg = styleOrMsg.map((s) => (typeof s === 'string' ? s : s(colorixApi)))
       msg.unshift(safeBoldRedInk(message + '\n'))
       super(msg.join(' '))
+      Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
       this.name = errorName
     }
   }

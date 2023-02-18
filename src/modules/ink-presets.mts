@@ -1,4 +1,11 @@
 import { cx } from './colorix.mjs'
+import { safe } from './safe.mjs'
+
+export const safeRedBrightInk = safe(cx('redBright'))
+
+export const safeResetGrayInk = safe(cx('reset', 'gray'))
+
+// normal
 
 export const boldRedInk = cx('bold', 'red')
 

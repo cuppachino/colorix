@@ -1,25 +1,36 @@
 import type { ApplyStyle } from '../types/apply-style.mjs'
 import { cx } from './colorix.mjs'
-import { boldRedInk } from './ink-presets.mjs'
+import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
 import { safe } from './safe.mjs'
-
-const safeURLInk = safe(cx('yellowBright', 'underline'))
-const safeBoldRedInk = safe(boldRedInk)
+import { isString } from '../utils/is-string.mjs'
+import type { Stringifiable } from '@cuppachino/type-space'
 
 /**
- * Utils for formatting strings quickly.
- *
- * @property link - resolves a relative path to an absolute path and formats it to be displayed in the terminal.
+ * Helper for constructing a colorized error message.
  */
-export const colorixApi = {
+export class ColorixApi {
   /**
-   * formats a path to be displayed in the terminal (clickable)
+   * `yellowBright`, `underline`
+   *
+   * @safe
    */
-  link: (url: string) => {
-    const pathName = new URL(url, import.meta.url).pathname
-    return safeURLInk(pathName)
+  public static link<Strings extends Stringifiable[]>(...strings: Strings) {
+    return ColorixApi._link(...strings)
   }
-} as const
+  private static _link = safe(cx('cyanBright', 'underline'))
+
+  /**
+   * `cyanBright`, `underline` (if supported)
+   *
+   * Resolves the path of a URL relative to the current file.
+   *
+   * @safe
+   */
+  static path(url: string) {
+    const pathName = new URL(url, import.meta.url).pathname
+    return ColorixApi.link(pathName)
+  }
+}
 
 /**
  * Extend an Error class with a custom message.
@@ -30,21 +41,23 @@ export const colorixApi = {
  * @example
  * ```ts
  * const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing')
- * throw new FileNotFoundError('The file', (style) => style.link('file.txt'), 'was not found in the target directory.')
+ * throw new FileNotFoundError('The file', (style) => style.path('file.txt'), 'was not found in the target directory.')
  * ```
  */
-export const ColorixError = <ErrorName extends string, Message extends string>(
+export function ColorixError<ErrorName extends string, Message extends string>(
   errorName: ErrorName,
   message: Message
-) =>
-  class Err extends Error {
+) {
+  const applyStyle = (style: string | ApplyStyle) => (isString(style) ? style : style(ColorixApi))
+  return class Err extends Error {
     constructor(...[msg, ...info]: (ApplyStyle | string)[])
     constructor(...[style, ...info]: (ApplyStyle | string)[])
     constructor(...styleOrMsg: (ApplyStyle | string)[]) {
-      const msg = styleOrMsg.map((s) => (typeof s === 'string' ? s : s(colorixApi)))
-      msg.unshift(safeBoldRedInk(message + '\n'))
-      super(msg.join(' '))
+      const main = safeRedBrightInk(message)
+      const info = safeResetGrayInk(styleOrMsg.map(applyStyle).join(' '))
+      super(`${main} ${info}`)
       Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
       this.name = errorName
     }
   }
+}

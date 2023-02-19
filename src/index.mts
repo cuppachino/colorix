@@ -14,6 +14,7 @@ export { ColorixError } from './modules/colorix-error.mjs'
 export { colorixSafe, cxs } from './modules/colorix-safe.mjs'
 export { colorix, cx } from './modules/colorix.mjs'
 export * from './modules/index.mjs'
+export { PrettyError } from './modules/pretty-error.mjs'
 export { safe } from './modules/safe.mjs'
 export {
   has16m as has16mColors,

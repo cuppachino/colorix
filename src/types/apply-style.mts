@@ -1,3 +1,3 @@
-import type { colorixApi } from '../modules/colorix-error.mjs'
+import type { ColorixApi } from '../modules/colorix-error.mjs'
 
-export type ApplyStyle = ({ link }: typeof colorixApi) => string
+export type ApplyStyle = ({ link, path }: typeof ColorixApi) => string

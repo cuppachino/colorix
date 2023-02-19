@@ -1,9 +1,9 @@
 import type { Join, Stringifiable, UnionLiteral } from '@cuppachino/type-space'
 import { colorSequence } from '../color-sequence.mjs'
 import type { Color, Colorix } from '../index.mjs'
-import supportsColor from 'supports-color'
-import { join } from '../utils/join.mjs'
 import { reset } from '../reset.mjs'
+import { join } from '../utils/join.mjs'
+import { supportsColor } from './supports-color.mjs'
 
 /**
  * Similar to `colorix` / `cx`, but only applies colors if the terminal supports it. The trade-off is weaker type inference. For example, if the return type was used as a function parameter, the type would be deferred to `string`.

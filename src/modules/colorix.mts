@@ -1,9 +1,9 @@
 import type { Stringifiable } from '@cuppachino/type-space'
 import { colorSequence } from '../color-sequence.mjs'
-import { join } from '../utils/join.mjs'
+import { reset } from '../reset.mjs'
 import type { Colorix } from '../types/colorix.mjs'
 import type { Color } from '../types/colors.mjs'
-import { reset } from '../reset.mjs'
+import { join } from '../utils/join.mjs'
 
 /**
  * Create a reusable `"Ink"` function to apply colors to strings.

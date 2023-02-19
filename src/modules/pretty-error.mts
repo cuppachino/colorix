@@ -1,5 +1,4 @@
 import type { PrettyErr } from '../types/pretty-error.mjs'
-
 import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
 
 /**

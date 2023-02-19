@@ -1,6 +1,6 @@
 import type { Join, Stringifiable, UnionLiteral } from '@cuppachino/type-space'
 import { join } from '../utils/join.mjs'
-import supportsColor from 'supports-color'
+import { supportsColor } from './supports-color.mjs'
 import type { Colorix } from '../types/colorix.mjs'
 import type { Color } from '../types/colors.mjs'
 

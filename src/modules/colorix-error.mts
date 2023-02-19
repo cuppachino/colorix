@@ -4,7 +4,7 @@ import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
 import { safe } from './safe.mjs'
 import { isString } from '../utils/is-string.mjs'
 import type { Stringifiable } from '@cuppachino/type-space'
-import type { ColorixErr } from 'src/types/colorix-error.mjs'
+import type { ColorixErr } from '../types/colorix-error.mjs'
 
 /**
  * Helper for constructing a colorized error message.

@@ -4,13 +4,14 @@ import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
 import { safe } from './safe.mjs'
 import { isString } from '../utils/is-string.mjs'
 import type { Stringifiable } from '@cuppachino/type-space'
+import type { ColorixErr } from 'src/types/colorix-error.mjs'
 
 /**
  * Helper for constructing a colorized error message.
  */
 export class ColorixApi {
   /**
-   * `yellowBright`, `underline`
+   * `cyanBright`, `underline`
    *
    * @safe
    */
@@ -41,14 +42,24 @@ export class ColorixApi {
  * @example
  * ```ts
  * const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing')
- * throw new FileNotFoundError('The file', (style) => style.path('file.txt'), 'was not found in the target directory.')
+ * try {
+ *   throw new FileNotFoundError(
+ *     'File at',
+ *     (style) => style.path('file.txt'),
+ *     'does not exist. Check the documentation for more information',
+ *     (style) => style.link('https://github.com/Cuppachino/colorix')
+ *   )
+ * } catch (err) {
+ *   console.error(err)
+ * }
  * ```
  */
 export function ColorixError<ErrorName extends string, Message extends string>(
   errorName: ErrorName,
   message: Message
 ) {
-  const applyStyle = (style: string | ApplyStyle) => (isString(style) ? style : style(ColorixApi))
+  const applyStyle = (style: string | ApplyStyle) =>
+    isString(style) ? safeResetGrayInk(style) : style(ColorixApi)
   return class Err extends Error {
     constructor(...[msg, ...info]: (ApplyStyle | string)[])
     constructor(...[style, ...info]: (ApplyStyle | string)[])
@@ -59,5 +70,5 @@ export function ColorixError<ErrorName extends string, Message extends string>(
       Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
       this.name = errorName
     }
-  }
+  } as unknown as ColorixErr<ErrorName, Message>
 }

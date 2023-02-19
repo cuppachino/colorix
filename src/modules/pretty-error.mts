@@ -17,8 +17,9 @@ import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
  * } catch (err) {
  *   console.log(err)
  * }
+ *
  * try {
- *   throw new IOError('hi there!', 'this is a test')
+ *   throw new IOError('Illegal write operation.', 'more info...')
  * } catch (err) {
  *   console.log(err)
  * }

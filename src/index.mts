@@ -20,7 +20,7 @@ export {
   has256 as has256Colors,
   hasBasic as hasBasicColors,
   supportsColor
-} from './supports-color.mjs'
+} from './modules/supports-color.mjs'
 export type { ColorSequence, ResetSequence } from './types/color-sequence.mjs'
 export type { Colorix } from './types/colorix.mjs'
 export type {

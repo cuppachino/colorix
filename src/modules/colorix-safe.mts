@@ -2,7 +2,7 @@ import type { Join, Stringifiable, UnionLiteral } from '@cuppachino/type-space'
 import { colorSequence } from '../color-sequence.mjs'
 import type { Color, Colorix } from '../index.mjs'
 import supportsColor from 'supports-color'
-import { join } from '../join.mjs'
+import { join } from '../utils/join.mjs'
 import { reset } from '../reset.mjs'
 
 /**

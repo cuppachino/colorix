@@ -1,6 +1,6 @@
 import type { Stringifiable } from '@cuppachino/type-space'
 import { colorSequence } from '../color-sequence.mjs'
-import { join } from '../join.mjs'
+import { join } from '../utils/join.mjs'
 import type { Colorix } from '../types/colorix.mjs'
 import type { Color } from '../types/colors.mjs'
 import { reset } from '../reset.mjs'

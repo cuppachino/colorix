@@ -95,13 +95,36 @@ console.log(safeErrorInk('That tasted purple...'))
 ```ts
 import { ColorixError } from 'colorix'
 
-const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing')
+const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing!')
 
 throw new FileNotFoundError(
-  'The file',
-  (style) => style.link('file.txt'),
-  'was not found in the target directory.'
+  'File at',
+  (style) => style.path('file.txt'),
+  'does not exist. Check the documentation for more information',
+  (style) => style.link('https://github.com/Cuppachino/colorix')
 )
+```
+
+### `PrettyError`
+
+For an "out-of-the-box" solution, use `PrettyError`. It provides the same naming and fallback message behavior as `Colorix` without an api for customizing the rest of the error.
+
+```ts
+import { PrettyError } from 'colorix'
+
+const IOError = PrettyError('IOError', 'An unknown IO error occurred.')
+
+try {
+  throw new IOError()
+} catch (err) {
+  console.log(err)
+}
+
+try {
+  throw new IOError('Illegal write operation.', 'more info...')
+} catch (err) {
+  console.log(err)
+}
 ```
 
 ## Exports

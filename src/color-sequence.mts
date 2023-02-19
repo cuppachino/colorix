@@ -1,6 +1,6 @@
 import { CSI, SGRT } from './ansi.mjs'
 import type { Color, ColorSequence } from './index.mjs'
-import { join } from './join.mjs'
+import { join } from './utils/join.mjs'
 import { mapColorsToCodes } from './map-colors-to-codes.mjs'
 
 /**

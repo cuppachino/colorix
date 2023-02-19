@@ -31,3 +31,4 @@ export type {
   Foreground,
   Modifier
 } from './types/colors.mjs'
+export * from './utils/index.mjs'

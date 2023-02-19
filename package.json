@@ -41,6 +41,11 @@
       "import": "./dist/types/index.mjs",
       "types": "./dist/types/index.d.ts"
     },
+    "./utils/*": "./dist/utils/*",
+    "./utils": {
+      "import": "./dist/utils/index.mjs",
+      "types": "./dist/utils/index.d.ts"
+    },
     "./package.json": "./package.json"
   },
   "type": "module",

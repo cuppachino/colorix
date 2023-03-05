@@ -105,6 +105,8 @@ throw new FileNotFoundError(
 )
 ```
 
+![colorix-error-example](./public/colorix-error-example.png)
+
 ### `PrettyError`
 
 For an "out-of-the-box" solution, use `PrettyError`. It provides the same naming and fallback message behavior as `Colorix` without an api for customizing the rest of the error.
@@ -126,6 +128,8 @@ try {
   console.log(err)
 }
 ```
+
+![pretty-error-example](./public/pretty-error-example.png)
 
 ## Exports
 

@@ -24,27 +24,27 @@
     "dist"
   ],
   "main": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "exports": {
     "./*": "./dist/*",
     ".": {
       "import": "./dist/index.mjs",
-      "types": "./dist/modules/index.d.ts"
+      "types": "./dist/modules/index.d.mts"
     },
     "./modules/*": "./dist/modules/*",
     "./modules": {
       "import": "./dist/modules/index.mjs",
-      "types": "./dist/modules/index.d.ts"
+      "types": "./dist/modules/index.d.mts"
     },
     "./types/*": "./dist/types/*",
     "./types": {
       "import": "./dist/types/index.mjs",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/types/index.d.mts"
     },
     "./utils/*": "./dist/utils/*",
     "./utils": {
       "import": "./dist/utils/index.mjs",
-      "types": "./dist/utils/index.d.ts"
+      "types": "./dist/utils/index.d.mts"
     },
     "./package.json": "./package.json"
   },

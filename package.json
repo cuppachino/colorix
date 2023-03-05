@@ -59,9 +59,13 @@
     "clean": "tsc --build --clean",
     "format": "prettier -w \"src/**/*.{mts,json,md}\"",
     "start": "node ./dist/index.mjs",
-    "test": "echo \"Warn: no test specified\" && exit 0"
+    "test": "echo \"Warn: no test specified\" && exit 0",
+    "save": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "@swc/core": "^1.3.27",
     "@swc/helpers": "^0.4.14",
     "@types/node": "^18.11.18",

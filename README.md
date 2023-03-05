@@ -99,7 +99,7 @@ const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is mi
 
 throw new FileNotFoundError(
   'File at',
-  (style) => style.path('file.txt'),
+  (style) => style.link('file.txt'),
   'does not exist. Check the documentation for more information',
   (style) => style.link('https://github.com/Cuppachino/colorix')
 )

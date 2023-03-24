@@ -1,5 +1,5 @@
 import type { UnionLiteral } from '@cuppachino/type-space'
-import type { Colorix } from './colorix.mjs'
+import type { Colorix } from './colorix.js'
 
 export interface PrettyErr<
   _ErrName extends string,
@@ -7,6 +7,6 @@ export interface PrettyErr<
 > {
   new (msg?: UnionLiteral<FallbackMessage, string>, ...args: string[]): Colorix<
     ['redBright'],
-    [FallbackMessage]
+    [FallbackMessage extends undefined ? string : FallbackMessage]
   >
 }

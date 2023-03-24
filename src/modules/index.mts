@@ -1,7 +1,0 @@
-export * from './colorix-error.mjs'
-export * from './colorix-safe.mjs'
-export * from './colorix.mjs'
-export * from './ink-presets.mjs'
-export * from './pretty-error.mjs'
-export * from './safe.mjs'
-export * from './supports-color.mjs'

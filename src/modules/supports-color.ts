@@ -1,3 +1,4 @@
+import stripAnsi from 'strip-ansi'
 import _supportsColor from 'supports-color'
 
 function _internalSupportsColor() {
@@ -17,4 +18,13 @@ function _internalSupportsColor() {
   }
 }
 
-export const { hasBasic, has256, has16m, supportsColor } = _internalSupportsColor()
+export const { hasBasic, has256, has16m, supportsColor } =
+  _internalSupportsColor()
+
+export function withSupportsColor<T extends string>(msg: T) {
+  if (supportsColor) {
+    return msg
+  } else {
+    return stripAnsi(msg)
+  }
+}

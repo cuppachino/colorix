@@ -1,9 +1,9 @@
-import type { Join, Stringifiable, UnionLiteral } from '@cuppachino/type-space'
-import { colorSequence } from '../color-sequence.mjs'
-import type { Color, Colorix } from '../index.mjs'
-import { reset } from '../reset.mjs'
-import { join } from '../utils/join.mjs'
-import { supportsColor } from './supports-color.mjs'
+import type { Join, UnionLiteral } from '@cuppachino/type-space'
+import { colorSequence } from '../color-sequence.js'
+import type { Color, Colorix } from '../index.js'
+import { reset } from '../reset.js'
+import { join } from '../utils/join.js'
+import { supportsColor } from './supports-color.js'
 
 /**
  * Similar to `colorix` / `cx`, but only applies colors if the terminal supports it. The trade-off is weaker type inference. For example, if the return type was used as a function parameter, the type would be deferred to `string`.
@@ -29,8 +29,8 @@ import { supportsColor } from './supports-color.mjs'
  * @see [safe\(\)](./safe.mts)
  *
  */
-export function colorixSafe<Colors extends Color[]>(...colors: Colors) {
-  return <Strings extends Stringifiable[]>(
+export function colorixSafe<const Colors extends Color[]>(...colors: Colors) {
+  return <Strings extends string[]>(
     ...strings: Strings
   ): `${Join<Strings>}` extends infer S extends `${string}`
     ? UnionLiteral<Colorix<Colors, Strings>, S>

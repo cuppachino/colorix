@@ -7,7 +7,10 @@ import type { Stringifiable, Join } from '@cuppachino/type-space'
  * @param delimiter - The delimiter to use.
  * @defaultValue ''
  */
-export const join = <Strings extends Stringifiable[], Delimiter extends string = ''>(
+export const join = <
+  Strings extends Stringifiable[],
+  Delimiter extends string = ''
+>(
   strings: Strings,
   delimiter: Delimiter = '' as Delimiter
 ) => strings.join(delimiter) as Join<Strings, Delimiter>

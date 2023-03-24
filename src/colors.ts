@@ -57,6 +57,12 @@ export const COLORS = Object.freeze({
   ...MODIFIERS
 } as const)
 
-export const foregroundColors = Object.keys(FOREGROUND) as readonly (keyof typeof FOREGROUND)[]
-export const backgroundColors = Object.keys(BACKGROUND) as readonly (keyof typeof BACKGROUND)[]
-export const modifiers = Object.keys(MODIFIERS) as readonly (keyof typeof MODIFIERS)[]
+export const foregroundColors = Object.keys(
+  FOREGROUND
+) as readonly (keyof typeof FOREGROUND)[]
+export const backgroundColors = Object.keys(
+  BACKGROUND
+) as readonly (keyof typeof BACKGROUND)[]
+export const modifiers = Object.keys(
+  MODIFIERS
+) as readonly (keyof typeof MODIFIERS)[]

@@ -1,7 +1,7 @@
 {
   "name": "colorix",
   "version": "1.3.3",
-  "description": "Apply ANSI colors to strings!",
+  "description": "🖌️ Colorize strings with LITERAL ANSI encodings!",
   "author": "cuppachino <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
   "repository": {
@@ -20,64 +20,54 @@
     "terminal",
     "pretty"
   ],
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.cjs",
+    "browser": "./dist/esm/index.js",
+    "default": "./dist/cjs/index.cjs"
+  },
   "files": [
     "dist"
   ],
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
-  "exports": {
-    "./*": "./dist/*",
-    ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/modules/index.d.mts"
-    },
-    "./modules/*": "./dist/modules/*",
-    "./modules": {
-      "import": "./dist/modules/index.mjs",
-      "types": "./dist/modules/index.d.mts"
-    },
-    "./types/*": "./dist/types/*",
-    "./types": {
-      "import": "./dist/types/index.mjs",
-      "types": "./dist/types/index.d.mts"
-    },
-    "./utils/*": "./dist/utils/*",
-    "./utils": {
-      "import": "./dist/utils/index.mjs",
-      "types": "./dist/utils/index.d.mts"
-    },
-    "./package.json": "./package.json"
-  },
-  "type": "module",
   "packageManager": "pnpm@7.25.0",
-  "publishConfig": {},
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node-esm ./src/index.mts",
     "build:swc": "ts-node ./src/index.mts",
     "build:tsc": "pnpm clean && pnpm build",
-    "build": "tsc -p tsconfig.prod.json",
-    "clean": "tsc --build --clean",
-    "format": "prettier -w \"src/**/*.{mts,json,md}\"",
+    "build": "pnpm clean && tsc --project tsconfig.json && tsc --project tsconfig.cjs.json && node ./scripts/os.js",
+    "clean": "rimraf ./dist",
+    "format": "prettier -w \"src/**/*.{ts,cts,mts,json,md}\"",
     "start": "node ./dist/index.mjs",
     "test": "echo \"Warn: no test specified\" && exit 0",
     "save": "changeset",
-    "version-packages": "changeset version",
-    "publish-packages": "changeset publish"
+    "version-package": "changeset version && pnpm format",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.0",
-    "@swc/core": "^1.3.27",
-    "@swc/helpers": "^0.4.14",
-    "@types/node": "^18.11.18",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.8.4",
+    "@changesets/cli": "^2.26.1",
+    "@types/node": "^18.15.7",
+    "prettier": "^2.8.7",
     "regenerator-runtime": "^0.13.11",
-    "ts-node": "^10.9.1",
+    "remark": "^14.0.2",
+    "remark-lint-emphasis-marker": "^3.1.1",
+    "remark-lint-strong-marker": "^3.1.1",
+    "rimraf": "^4.4.1",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@cuppachino/type-space": "^1.10.1",
+    "@cuppachino/type-space": "^1.16.0",
+    "@type-challenges/utils": "^0.1.1",
+    "strip-ansi": "^7.0.1",
     "supports-color": "^9.3.1"
   }
 }
+

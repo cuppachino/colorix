@@ -1,5 +1,5 @@
-import { cx } from './colorix.mjs'
-import { safe } from './safe.mjs'
+import { cx } from './colorix.js'
+import { safe } from './safe.js'
 
 export const safeRedBrightInk = safe(cx('redBright'))
 

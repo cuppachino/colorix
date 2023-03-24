@@ -1,4 +1,4 @@
-import type { BACKGROUND, COLORS, FOREGROUND, MODIFIERS } from '../colors.mjs'
+import type { BACKGROUND, COLORS, FOREGROUND, MODIFIERS } from '../colors.js'
 
 export type Foreground = keyof typeof FOREGROUND
 export type Background = keyof typeof BACKGROUND

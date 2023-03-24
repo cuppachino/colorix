@@ -1,5 +1,5 @@
-import type { PrettyErr } from '../types/pretty-error.mjs'
-import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.mjs'
+import type { PrettyErr } from '../types/pretty-error.js'
+import { safeRedBrightInk, safeResetGrayInk } from './ink-presets.js'
 
 /**
  * Creates a new Error class with a custom name and fallback message if no message is provided.
@@ -30,7 +30,7 @@ export function PrettyError<
 >(name: ErrorName, fallbackMessage = '' as FallbackMessage) {
   return class extends Error {
     constructor(msg?: string, ...args: any[]) {
-      const message = safeRedBrightInk(msg ?? fallbackMessage)
+      const message = safeRedBrightInk(msg ?? fallbackMessage ?? '')
       const details = safeResetGrayInk(args.join(' '))
       super(`${message} ${details}`)
       Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain

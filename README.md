@@ -1,6 +1,6 @@
 # Colorix
 
-Colorix helps you recognize and track ansi escape sequences in your code, and provides a simple way to define and layer color presets.
+Colorix provides a simple way to define and layer color presets, and helps you recognize and track ANSI escape sequences in your code. Each module uses template literals (and a bit of magic 🪄) to construct a type representation of the color sequences applied to your strings.
 
 ```ts
 import cx from 'colorix'
@@ -11,14 +11,14 @@ console.log(goblinInk('hello goblin', '!'))
 
 ![goblin-example](./public/globin-example.jpg)
 
-With TypeScript, you'll see how the color sequences are applied to your strings.
+## With TypeScript, *always* know when a string has <u>hidden characters</u>
 
 ```ts
 declare const goblinMessage: Colorix<['bgGreen', 'black', 'bold'], ['hello goblin', '!']>
 // => `\u001B[42;30;1mhello goblin!\u001B[0m`
 ```
 
-This is useful with primitive strings as well.
+### This is useful with primitive strings as well
 
 ```ts
 declare const goblinMessage: Colorix<['bgGreen', 'black', 'bold'], [string, ...string[]]>
@@ -77,7 +77,7 @@ console.log(safe(errorInk)('That tasted purple...'))
 // "That tasted purple..." | "\u001B[mThat tasted purple...\u001B[0m"
 ```
 
-Alternatively, use `colorixSafe` / `cxs` for an `Ink` preset that _only_ applies colors if the terminal supports it.
+Alternatively, use `colorixSafe` / `cxs` for an `Ink` preset that *only* applies colors if the terminal supports it.
 
 ```ts
 import { cxs, colorixSafe } from 'colorix'
@@ -90,22 +90,33 @@ console.log(safeErrorInk('That tasted purple...'))
 
 ### `ColorixError`
 
-`ColorixError` can be used to extend the Error class. This is useful for throwing consistent, legible, contextual errors.
+Fun way to colorize error messages without worrying about the terminal supporting color, or importing `colorix` / `cx` / `safe` into many files.
 
 ```ts
 import { ColorixError } from 'colorix'
 
-const FileNotFoundError = ColorixError('FileNotFoundError', 'Critical file is missing!')
-
-throw new FileNotFoundError(
-  'File at',
-  (style) => style.link('file.txt'),
-  'does not exist. Check the documentation for more information',
-  (style) => style.link('https://github.com/Cuppachino/colorix')
+const BasicError = new ColorixError(
+  'simple message that is always safe to display'
 )
-```
+const PrettyError = new ColorixError((cx) =>
+  cx(
+    'white',
+    'bgBlue',
+    'dim',
+    'bold'
+  )(
+    'Pretty Message',
+    cx('reset')(' '),
+    cx('underline', 'green')(
+      'npmjs.com/package/colorix',
+      cx('reset', 'italic')(' '),
+      '(this message will always be stripped of color if supportsColor is false)'
+    )
+  )
+)
 
-![colorix-error-example](./public/colorix-error-example.png)
+throw PrettyError
+```
 
 ### `PrettyError`
 
@@ -130,6 +141,8 @@ try {
 ```
 
 ![pretty-error-example](./public/pretty-error-example.png)
+
+![colorix-error-example](./public/colorix-error-example.png)
 
 ## Exports
 

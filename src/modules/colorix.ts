@@ -1,9 +1,9 @@
 import type { Stringifiable } from '@cuppachino/type-space'
-import { colorSequence } from '../color-sequence.mjs'
-import { reset } from '../reset.mjs'
-import type { Colorix } from '../types/colorix.mjs'
-import type { Color } from '../types/colors.mjs'
-import { join } from '../utils/join.mjs'
+import { colorSequence } from '../color-sequence.js'
+import { reset } from '../reset.js'
+import type { Colorix } from '../types/colorix.js'
+import type { Color } from '../types/colors.js'
+import { join } from '../utils/join.js'
 
 /**
  * Create a reusable `"Ink"` function to apply colors to strings.
@@ -28,10 +28,10 @@ import { join } from '../utils/join.mjs'
  * @see [colorixSafe\()](./colorix-safe.mts)
  * @see [safe\()](./safe.mts)
  */
-export function colorix<Colors extends Color[]>(...colors: Colors) {
+export function colorix<const Colors extends Color[]>(...colors: Colors) {
   const sequence = colorSequence(...colors)
 
-  return <Strings extends Stringifiable[]>(...strings: Strings) =>
+  return <const Strings extends string[]>(...strings: [...Strings]) =>
     `${sequence}${join(strings)}${reset}` as Colorix<Colors, Strings>
 }
 

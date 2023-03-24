@@ -1,8 +1,8 @@
-import type { Join, Stringifiable, UnionLiteral } from '@cuppachino/type-space'
-import { join } from '../utils/join.mjs'
-import { supportsColor } from './supports-color.mjs'
-import type { Colorix } from '../types/colorix.mjs'
-import type { Color } from '../types/colors.mjs'
+import type { Join, UnionLiteral } from '@cuppachino/type-space'
+import { join } from '../utils/join.js'
+import { supportsColor } from './supports-color.js'
+import type { Colorix } from '../types/colorix.js'
+import type { Color } from '../types/colors.js'
 
 /**
  * Checks if the `Ink` should be applied based on whether the terminal supports color.
@@ -36,15 +36,19 @@ import type { Color } from '../types/colors.mjs'
  */
 export function safe<
   Ink extends
-    | (<Strings extends Stringifiable[]>(...strings: Strings) => Colorix<Colors, Strings>)
-    | (<Strings extends Stringifiable[]>(...strings: Strings) => string),
+    | (<Strings extends string[]>(
+        ...strings: Strings
+      ) => Colorix<Colors, Strings>)
+    | (<Strings extends string[]>(...strings: Strings) => string),
   Colors extends Color[]
 >(ink: Ink) {
   if (supportsColor) {
-    return ink as <Strings extends Stringifiable[]>(...strings: Strings) => Colorix<Colors, Strings>
+    return ink as <Strings extends string[]>(
+      ...strings: Strings
+    ) => Colorix<Colors, Strings>
   }
 
-  return <Strings extends Stringifiable[]>(...strings: Strings) =>
+  return <Strings extends string[]>(...strings: Strings) =>
     join(strings) as `${string}` extends Join<Strings>
       ? UnionLiteral<Colorix<Colors, [string]>, Join<Strings>>
       : Colorix<Colors, Strings> | Join<Strings>

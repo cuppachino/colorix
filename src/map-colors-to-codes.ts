@@ -1,6 +1,6 @@
-import { COLORS } from './colors.mjs'
-import type { Color } from './types/colors.mjs'
-import type { MapColorsToCodes } from './types/map-colors-to-codes.mjs'
+import { COLORS } from './colors.js'
+import type { Color } from './types/colors.js'
+import type { MapColorsToCodes } from './types/map-colors-to-codes.js'
 
 /**
  * Maps a tuple of colors to a tuple of color codes.

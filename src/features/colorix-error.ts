@@ -1,4 +1,4 @@
-import { withSupportsColor } from 'index.js'
+import { withSupportsColor } from '../modules/supports-color.js'
 import { colorix } from '../modules/colorix.js'
 
 /**
@@ -55,3 +55,4 @@ export class ColorixError<const T extends string> extends Error {
     return this.constructor.name
   }
 }
+

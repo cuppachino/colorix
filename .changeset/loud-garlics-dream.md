@@ -1,5 +1,0 @@
----
-"colorix": patch
----
-
-Configure Renovate

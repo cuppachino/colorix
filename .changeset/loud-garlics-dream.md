@@ -1,0 +1,5 @@
+---
+"colorix": patch
+---
+
+Configure Renovate

@@ -8,7 +8,7 @@
 
 ### Patch Changes
 
-- FIX BUILD SCRIPT
+- 097bd84: Configure Renovate
 
 ## 1.3.3
 

@@ -4,7 +4,7 @@ import { promisify } from 'node:util'
 export const execPromise = promisify(exec)
 
 const PS1 = `
-Dir ./dist/cjs/**/*.js | Rename-Item -NewName { [io.path]::ChangeExtension($_.Name,"cjs") };
+Dir ./dist/cjs/*.js -Recurse | Rename-Item -NewName { [io.path]::ChangeExtension($_.Name,"cjs") };
 Copy-Item -Path ./dist/esm -Filter *.d.ts -Recurse -Container:$false -Destination ./dist/types;
 `
 
@@ -12,6 +12,7 @@ const BASH = `
 for file in dist/cjs/**/*.js; do
 mv "$file" "\${file%.js}.cjs"
 done;
+
 mkdir -p ./dist/types; cp -R ./dist/esm/ ./dist/types; find ./dist/types/ ! -name '*.d.ts' -type f -delete
 `
 

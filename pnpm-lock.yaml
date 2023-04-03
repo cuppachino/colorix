@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@changesets/cli': ^2.26.1
-  '@cuppachino/type-space': ^1.16.0
+  '@cuppachino/type-space': ^2.0.0
   '@type-challenges/utils': ^0.1.1
   '@types/node': ^18.15.7
   prettier: ^2.8.7
@@ -17,7 +17,7 @@ specifiers:
   typescript: ^5.0.2
 
 dependencies:
-  '@cuppachino/type-space': 1.16.0
+  '@cuppachino/type-space': 2.0.0
   '@type-challenges/utils': 0.1.1
   strip-ansi: 7.0.1
   supports-color: 9.3.1
@@ -248,8 +248,8 @@ packages:
       prettier: 2.8.7
     dev: true
 
-  /@cuppachino/type-space/1.16.0:
-    resolution: {integrity: sha512-GOldvmkOFomI5Fy0x6vbzggXfmrg/J21H7MWU4MyrCO94WSb50CheXD9yvkRGXylsc2BMJ1kQDMviSml2a6vBQ==}
+  /@cuppachino/type-space/2.0.0:
+    resolution: {integrity: sha512-LrGviIPYv7VKLcWL4QRleIacIZVlssgL/pPVZruPSupMCCNOWml8k3SHwH5D7h2i8OeHyK122bdKbC2IdR1NMw==}
     dev: false
 
   /@manypkg/find-root/1.1.0:

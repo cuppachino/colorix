@@ -64,7 +64,7 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@cuppachino/type-space": "^1.16.0",
+    "@cuppachino/type-space": "^2.0.0",
     "@type-challenges/utils": "^0.1.1",
     "strip-ansi": "^7.0.1",
     "supports-color": "^9.3.1"

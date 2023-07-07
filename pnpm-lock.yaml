@@ -5,7 +5,7 @@ specifiers:
   '@cuppachino/type-space': ^1.16.0
   '@type-challenges/utils': ^0.1.1
   '@types/node': ^18.15.7
-  prettier: ^2.8.7
+  prettier: ^3.0.0
   regenerator-runtime: ^0.13.11
   remark: ^14.0.2
   remark-lint-emphasis-marker: ^3.1.1
@@ -25,7 +25,7 @@ dependencies:
 devDependencies:
   '@changesets/cli': 2.26.1
   '@types/node': 18.15.7
-  prettier: 2.8.7
+  prettier: 3.0.0
   regenerator-runtime: 0.13.11
   remark: 14.0.2_supports-color@9.3.1
   remark-lint-emphasis-marker: 3.1.1
@@ -1683,6 +1683,12 @@ packages:
   /prettier/2.8.7:
     resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier/3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 

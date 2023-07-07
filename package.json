@@ -54,7 +54,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
     "@types/node": "^18.15.7",
-    "prettier": "^2.8.7",
+    "prettier": "^3.0.0",
     "regenerator-runtime": "^0.13.11",
     "remark": "^14.0.2",
     "remark-lint-emphasis-marker": "^3.1.1",

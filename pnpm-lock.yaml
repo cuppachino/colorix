@@ -6,7 +6,7 @@ specifiers:
   '@type-challenges/utils': ^0.1.1
   '@types/node': ^18.15.7
   prettier: ^2.8.7
-  regenerator-runtime: ^0.13.11
+  regenerator-runtime: ^0.14.0
   remark: ^14.0.2
   remark-lint-emphasis-marker: ^3.1.1
   remark-lint-strong-marker: ^3.1.1
@@ -26,7 +26,7 @@ devDependencies:
   '@changesets/cli': 2.26.1
   '@types/node': 18.15.7
   prettier: 2.8.7
-  regenerator-runtime: 0.13.11
+  regenerator-runtime: 0.14.0
   remark: 14.0.2_supports-color@9.3.1
   remark-lint-emphasis-marker: 3.1.1
   remark-lint-strong-marker: 3.1.1
@@ -1738,6 +1738,10 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+    dev: true
+
+  /regenerator-runtime/0.14.0:
+    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
     dev: true
 
   /regexp.prototype.flags/1.4.3:
